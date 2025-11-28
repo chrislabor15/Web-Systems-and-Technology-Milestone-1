@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Welcome, <span id="userName"></span> 👋</h1>
+
+<div class="nav-buttons">
+    <a href="calendar.html">Go to Calendar</a>
+    <a href="tracker.html">Errands Map</a>
+    <a href="memories.html">Memories</a>
+    <a href="evidence.html">Evidence Board</a>
+    <a href="about.html">About</a>
+</div>
+
+<script>
+    document.getElementById("userName").textContent = localStorage.getItem("loggedUser");
+</script>
+
+</body>
+</html>

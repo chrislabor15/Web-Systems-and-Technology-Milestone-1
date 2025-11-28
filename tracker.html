@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Errands Map</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet Map Library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- ⭐ The APP Container: sidebar + main content -->
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="mainSidebar">
+        <div class="logo">
+            <!-- inline svg logo -->
+            <span>ErrandsHub</span>
+        </div>
+
+        <nav class="nav">
+            <a href="home.html" class="nav-link" id="nav-home"><svg>...home svg...</svg><span>Home</span></a>
+            <a href="calendar.html" class="nav-link" id="nav-calendar"><svg>...calendar svg...</svg><span>Calendar</span></a>
+            <a href="tracker.html" class="nav-link" id="nav-tracker"><svg>...map svg...</svg><span>Map</span></a>
+            <a href="memories.html" class="nav-link" id="nav-memories"><svg>...memories svg...</svg><span>Memories</span></a>
+            <a href="evidence.html" class="nav-link" id="nav-evidence"><svg>...evidence svg...</svg><span>Evidence</span></a>
+            <a href="about.html" class="nav-link" id="nav-about"><svg>...about svg...</svg><span>About</span></a>
+        </nav>
+
+        <div class="bottom">
+            <button class="btn ghost" onclick="logout()">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="content" id="mainContent">
+        <!-- Page header -->
+        <div class="header">
+            <h2>Daily Errands Hub</h2>
+        </div>
+
+        <!-- Map -->
+        <div id="map"></div>
+
+        <!-- Sidebar task list (optional if you want tasks in main content) -->
+        <div id="taskList"></div>
+    </main>
+
+</div> <!-- end .app -->
+
+<!-- Dark Mode Button -->
+<button id="darkModeBtn" class="dark-toggle">🌙</button>
+
+<script src="map.js"></script>
+
+<script>
+  // Highlight current nav link
+  const path = window.location.pathname.split('/').pop();
+  document.querySelectorAll('.nav-link').forEach(a=>{
+    if(a.getAttribute('href') === path) a.classList.add('active');
+  });
+
+  function logout(){
+    localStorage.removeItem('loggedUser');
+    window.location.href = 'index.html';
+  }
+</script>
+
+</body>
+</html>
